@@ -5,9 +5,7 @@ This document develops the skill-specific component of the Job-Person Matching M
 The overall matching model is defined conceptually as
 
 $$
-M(P,J)
-=
-E(P,J)\cdot A\left(Q(P,J),R(P,J)\right),
+M(P,J) = E(P,J)\cdot A\left(Q(P,J),R(P,J)\right),
 $$
 
 where:
@@ -41,11 +39,7 @@ $$
 These individual matches are subsequently aggregated into an overall Skill Fit
 
 $$
-m_{\mathrm{Skills}}(P,J)
-=
-A_S\left(
-{m_s(P,J):s\in S_J}
-\right).
+m_{\mathrm{Skills}}(P,J) = A_S\left({m_s(P,J):s\in S_J}\right).
 $$
 
 The Skill Matching Problem therefore contains two distinct aggregation levels:
@@ -89,7 +83,7 @@ Thus, if job (J) requires skill (s), the model initially considers only the pers
 Skill similarity may be introduced as a future extension through a function such as
 
 $$
-\operatorname{sim}(s_1,s_2).
+\text{sim}(s_1,s_2).
 $$
 
 ---
@@ -101,31 +95,27 @@ For a particular skill $s$, the job and person may provide several relevant char
 On the personal side:
 
 $$
-P_s =
-\left(
-\operatorname{Prof}(P,s),
-\operatorname{Exp}(P,s),
-\operatorname{Evidence}(P,s)
+P_s =\left(
+\text{Prof}(P,s),
+\text{Exp}(P,s),
+\text{Evidence}(P,s)
 \right).
 $$
 
 On the job side:
 
 $$
-J_s =
-\left(
-\operatorname{ReqProf}(J,s),
-\operatorname{ReqExp}(J,s),
-\operatorname{Importance}(J,s)
+J_s = \left(
+\text{ReqProf}(J,s),
+\text{ReqExp}(J,s),
+\text{Importance}(J,s)
 \right).
 $$
 
 The individual skill match is therefore conceptually defined as
 
 $$
-m_s(P,J)
-=
-f_s(P_s,J_s).
+m_s(P,J) = f_s(P_s,J_s).
 $$
 
 The first component investigated is proficiency.
@@ -139,9 +129,7 @@ The first component investigated is proficiency.
 Assume that proficiency is represented by an ordered set
 
 $$
-\mathcal P
-=
-\lbrace
+\mathcal P = \lbrace
 \text{Beginner},
 \text{Intermediate},
 \text{Advanced},
@@ -168,15 +156,13 @@ The distances between adjacent categories are not intrinsically defined.
 Therefore,
 
 $$
-\operatorname{distance}
-(\text{Beginner},\text{Intermediate})
+\text{distance}(\text{Beginner},\text{Intermediate})
 $$
 
 is not automatically equivalent to
 
 $$
-\operatorname{distance}
-(\text{Advanced},\text{Expert}).
+\text{distance}(\text{Advanced},\text{Expert}).
 $$
 
 Any model using numerical differences between proficiency ranks therefore introduces an additional modelling assumption.
@@ -208,9 +194,7 @@ For example:
 A normalised squared rank distance can then be defined as
 
 $$
-\ell_{\mathrm{prof}}(p_1,p_2)
-=
-\left(
+\ell_{\mathrm{prof}}(p_1,p_2) = \left(
 \frac{r(p_1)-r(p_2)}
 {R_{\max}-R_{\min}}
 \right)^2.
@@ -270,8 +254,7 @@ For example, it treats every one-rank difference identically before applying the
 Thus,
 
 $$
-|r(\text{Beginner})-r(\text{Intermediate})|
-=
+|r(\text{Beginner})-r(\text{Intermediate})| =
 |r(\text{Advanced})-r(\text{Expert})|.
 $$
 
@@ -288,8 +271,7 @@ Both choices are modelling assumptions rather than consequences of the data scal
 The proposed distance is symmetric:
 
 $$
-\ell_{\mathrm{prof}}(p_1,p_2)
-=
+\ell_{\mathrm{prof}}(p_1,p_2) =
 \ell_{\mathrm{prof}}(p_2,p_1).
 $$
 
@@ -314,8 +296,7 @@ Personal: Advanced
 The symmetric distance assigns the same loss to both:
 
 $$
-\ell(\text{Beginner},\text{Intermediate})
-=
+\ell(\text{Beginner},\text{Intermediate}) =
 \ell(\text{Advanced},\text{Intermediate}).
 $$
 
@@ -331,14 +312,11 @@ This suggests an asymmetric alternative.
 Define
 
 $$
-\ell_{\mathrm{prof}}(P,J)
-=
-\left(
+\ell_{\mathrm{prof}}(P,J) = \left(
 \frac{
 \max\left(
 0,
-r(\operatorname{ReqProf}(J,s))
--
+r(\operatorname{ReqProf}(J,s)) -
 r(\operatorname{Prof}(P,s))
 \right)
 }
@@ -349,8 +327,7 @@ $$
 Then:
 
 $$
-r(\operatorname{Prof}(P,s))
-\geq
+r(\operatorname{Prof}(P,s)) \geq
 r(\operatorname{ReqProf}(J,s))
 $$
 
@@ -363,8 +340,7 @@ $$
 The corresponding match is again
 
 $$
-m_{\mathrm{prof},s}(P,J)
-=
+m_{\mathrm{prof},s}(P,J) =
 1-\ell_{\mathrm{prof}}(P,J).
 $$
 
