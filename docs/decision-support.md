@@ -96,9 +96,7 @@ If the requirement represents a minimum, having more experience than required sh
 A one-sided loss may therefore be more appropriate:
 
 $$
-\ell_{\mathrm{experience}}(s,r)
-=
-\max(0,r-s).
+\ell_{\mathrm{experience}}(s,r) = \max(0,r-s).
 $$
 
 This yields zero loss whenever the requirement is met or exceeded.
@@ -202,9 +200,7 @@ Let $$w_k$$ denote the importance assigned to matching dimension $k$.
 A possible model may eventually take a form such as
 
 $$
-M(P,J)
-=
-\sum_{k=1}^{K} w_k m_k(P,J),
+M(P,J) = \sum_{k=1}^{K} w_k m_k(P,J),
 $$
 
 subject, for example, to
