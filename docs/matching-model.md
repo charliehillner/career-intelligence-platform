@@ -71,9 +71,7 @@ Eligibility therefore acts as a gate rather than as an ordinary matching compone
 Conceptually, the overall model may eventually have the structure
 
 $$
-M(P,J)
-=
-E(P,J)\cdot S(P,J),
+M(P,J) = E(P,J)\cdot S(P,J),
 $$
 
 where $S(P,J)$ represents compatibility across compensable dimensions.
@@ -101,8 +99,7 @@ for **Preference Fit**.
 The soft matching component can conceptually be written as
 
 $$
-S(P,J)
-=
+S(P,J) =
 A\left(Q(P,J), R(P,J)\right),
 $$
 
@@ -111,12 +108,8 @@ where $A$ denotes an aggregation function.
 A weighted additive model is a natural initial candidate:
 
 $$
-S(P,J)
-=
-
-w_Q(J)Q(P,J)
-
-- w_R(P,J)R(P,J),
+S(P,J) =
+w_Q(J)Q(P,J) - w_R(P,J)R(P,J),
 $$
 
 with
@@ -173,19 +166,13 @@ therefore cannot represent a single direct comparison.
 Instead, it must aggregate individual skill-specific matches
 
 $$
-m_s(P,J),
-\qquad s\in S_J.
+m_s(P,J), \qquad s\in S_J.
 $$
 
 Conceptually,
 
 $$
-m_{\mathrm{Skills}}(P,J)
-=
-A_S
-\left(
-{m_s(P,J):s\in S_J}
-\right),
+m_{\mathrm{Skills}}(P,J) = A_S\left({m_s(P,J):s\in S_J}\right),
 $$
 
 where $A_S$ denotes a skill aggregation function.
@@ -193,10 +180,7 @@ where $A_S$ denotes a skill aggregation function.
 A simple weighted candidate would be
 
 $$
-m_{\mathrm{Skills}}(P,J)
-=
-\sum_{s\in S_J}
-w_s(J)m_s(P,J),
+m_{\mathrm{Skills}}(P,J) = \sum_{s\in S_J} w_s(J)m_s(P,J),
 $$
 
 subject to an appropriate normalisation such as
@@ -234,25 +218,25 @@ For a particular skill $s$, relevant information may include:
 ### Proficiency
 
 $$
-\operatorname{Prof}(P,s)
+\text{Prof}(P,s)
 $$
 
 versus
 
 $$
-\operatorname{ReqProf}(J,s).
+\text{ReqProf}(J,s).
 $$
 
 ### Experience
 
 $$
-\operatorname{Exp}(P,s)
+\text{Exp}(P,s)
 $$
 
 versus
 
 $$
-\operatorname{ReqExp}(J,s).
+\text{ReqExp}(J,s).
 $$
 
 ### Evidence
@@ -282,9 +266,7 @@ Skill s
 A skill-specific matching function therefore has the general form
 
 $$
-m_s(P,J)
-=
-f_s\left(P_s,J_s\right),
+m_s(P,J) = f_s\left(P_s,J_s\right),
 $$
 
 where $P_s$ and $J_s$ represent the personal and job-specific information associated with skill $s$.
@@ -326,8 +308,7 @@ This structure implies multiple levels of aggregation.
 For example:
 
 $$
-m_{\mathrm{proficiency},s} \text{, }
-m_{\mathrm{experience},s}
+m_{\mathrm{proficiency},s} \text{, } m_{\mathrm{experience},s}
 $$
 
 may first be combined into
@@ -367,16 +348,12 @@ Potential dimensions include:
 Conceptually,
 
 $$
-R(P,J)
-=
-A_R
-\left(
+R(P,J) = A_R \left(
 m_{\mathrm{location}},
 m_{\mathrm{remote}},
 m_{\mathrm{salary}},
 m_{\mathrm{employment}},
-m_{\mathrm{industry}},
-\ldots
+m_{\mathrm{industry}}, \ldots
 \right).
 $$
 
@@ -430,15 +407,8 @@ The current conceptual model can be summarised as:
 The overall matching function may therefore eventually take the general form
 
 $$
-M(P,J)
-=
-E(P,J)
-\cdot
-A
-\left(
-Q(P,J),
-R(P,J)
-\right).
+M(P,J) =
+E(P,J) \cdot A\left(Q(P,J),R(P,J)\right).
 $$
 
 The exact definitions of the local matching functions, weighting functions and aggregation operators remain subjects of further modelling.

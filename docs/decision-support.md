@@ -325,9 +325,7 @@ $$
 The final match could then conceptually take a form such as
 
 $$
-M(P,J)
-=
-E(P,J)\cdot S(P,J),
+M(P,J) = E(P,J)\cdot S(P,J),
 $$
 
 where $S(P,J)$ represents the match across compensable criteria.
