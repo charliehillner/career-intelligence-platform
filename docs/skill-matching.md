@@ -231,8 +231,7 @@ Since this quantity represents disagreement rather than compatibility, it is mor
 A corresponding match could be defined as
 
 $$
-m_{\mathrm{prof}}
-=
+m_{\mathrm{prof}} =
 1-\ell_{\mathrm{prof}}.
 $$
 
@@ -312,23 +311,13 @@ This suggests an asymmetric alternative.
 Define
 
 $$
-\ell_{\mathrm{prof}}(P,J) = \left(
-\frac{
-\max\left(
-0,
-r(\operatorname{ReqProf}(J,s)) -
-r(\operatorname{Prof}(P,s))
-\right)
-}
-{R_{\max}-R_{\min}}
-\right)^2.
+\ell_{\mathrm{prof}}(P,J) = \left(\frac{\max\left(0, r(\text{ReqProf}(Js)) - r(\text{Prof}(P,s))\right)}{R_{\max}-R_{\min}}\right)^2.
 $$
 
 Then:
 
 $$
-r(\operatorname{Prof}(P,s)) \geq
-r(\operatorname{ReqProf}(J,s))
+r(\text{Prof}(P,s)) \geq r(\text{ReqProf}(J,s))
 $$
 
 implies
