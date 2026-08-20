@@ -760,3 +760,367 @@ Possible fields include:
 - `YearsExperience`
 
 This would make it possible to analyse how personal capabilities evolve over time without overwriting previous states.
+
+# Level 3 – Decision Support
+
+Level 3 builds upon the labour market model from Level 1 and the personal profile model from Level 2.
+
+Unlike the previous levels, Level 3 primarily does not introduce new entities representing the business domain. Instead, it derives analytical quantities by comparing labour market requirements with personal capabilities.
+
+The purpose of this layer is to transform descriptive information into actionable decision support.
+
+---
+
+## From Description to Decision Support
+
+The three analytical levels of the platform can be summarised as:
+
+```text
+Level 1 – Labour Market
+"What does the market require?"
+            |
+            v
+      Market Profile
+
+
+Level 2 – Personal Profile
+"What can I offer?"
+            |
+            v
+     Personal Profile
+
+
+Market Profile + Personal Profile
+            |
+            v
+      Matching Model
+            |
+            v
+Level 3 – Decision Support
+"What should I do?"
+```
+
+The central challenge of Level 3 is therefore the definition of the **matching model**.
+
+---
+
+## The Matching Problem
+
+The shared `Skill` dimension allows job requirements and personal capabilities to be represented in a common space.
+
+Conceptually, a job posting can be represented through its required skills:
+
+```text
+JobProfile(J)
+=
+{
+    (Skill_1, Requirement_1),
+    (Skill_2, Requirement_2),
+    ...
+}
+```
+
+A person's professional profile can similarly be represented through personal capabilities:
+
+```text
+PersonalProfile(P)
+=
+{
+    (Skill_1, Capability_1),
+    (Skill_2, Capability_2),
+    ...
+}
+```
+
+The matching problem consists of determining how closely these two profiles correspond.
+
+Conceptually, the platform therefore requires a function
+
+```text
+Match(Person, JobPosting)
+```
+
+or equivalently a distance or loss function
+
+```text
+Distance(Person, JobPosting)
+```
+
+where a smaller distance represents a better match.
+
+The exact mathematical definition of this function is deliberately left open at this stage and should be specified separately before implementing the Decision Support layer.
+
+---
+
+## Matching Dimensions
+
+A meaningful match should not necessarily be based on binary skill possession alone.
+
+Potential components include:
+
+### Skill Coverage
+
+How many of the required skills are covered by the personal profile?
+
+### Proficiency Match
+
+How closely does personal proficiency correspond to the proficiency expected by the job?
+
+### Experience Match
+
+How closely does personal experience correspond to the required experience?
+
+### Skill Importance
+
+Not every skill mentioned in a job posting is equally important.
+
+Core requirements may receive greater weight than optional or supporting skills.
+
+### Evidence
+
+Personal capabilities may be supported by different amounts and strengths of evidence, for example through projects.
+
+### Skill Recency
+
+Recently used skills may provide stronger evidence of current capability than skills that have not been used for several years.
+
+These components may later form a multidimensional matching function.
+
+---
+
+## Match as an Analytical Foundation
+
+The matching model is not itself a recommendation.
+
+Instead, it provides the analytical foundation from which recommendations can be derived.
+
+Conceptually:
+
+```text
+Market Data
+     +
+Personal Data
+     |
+     v
+Matching Model
+     |
+     +------> Job Fit
+     |
+     +------> Skill Gaps
+     |
+     +------> Regional Fit
+     |
+     +------> Company Fit
+     |
+     +------> Career Path Fit
+     |
+     v
+Decision Support
+```
+
+This separation is important because the same matching model can support several different business questions.
+
+---
+
+## Derived Analytical Concepts
+
+### Job Fit
+
+`JobFit` describes how closely a person's profile matches the requirements of an individual job posting.
+
+Conceptually:
+
+```text
+JobFit(Person, JobPosting)
+```
+
+The measure may combine skill coverage, proficiency, experience and evidence.
+
+---
+
+### Skill Gap
+
+A `SkillGap` describes a mismatch between market requirements and personal capabilities.
+
+A missing skill is not automatically an important skill gap.
+
+The relevance of a gap depends on factors such as:
+
+- frequency of the skill in relevant job postings,
+- importance of the skill within those postings,
+- current personal proficiency,
+- required proficiency,
+- and the effect of closing the gap on overall job fit.
+
+Therefore, skill-gap prioritisation should be based on the matching model rather than simple absence or presence.
+
+---
+
+### Marketability Gain
+
+`MarketabilityGain` describes the expected improvement in market coverage resulting from acquiring or improving a skill.
+
+Conceptually, this can be viewed as a counterfactual comparison:
+
+```text
+Current Profile
+      |
+      v
+Current Job Coverage
+
+Current Profile + Skill X
+      |
+      v
+New Job Coverage
+```
+
+The difference between both states represents the incremental value of Skill X.
+
+This allows the platform to distinguish between:
+
+> "Which skills are popular?"
+
+and the more decision-relevant question:
+
+> "Which skill would improve this person's opportunities the most?"
+
+---
+
+### Regional Fit
+
+`RegionalFit` aggregates personal job fit over geographical locations.
+
+It may combine information such as:
+
+- number of available jobs,
+- average or median job fit,
+- number of high-fit jobs,
+- salary levels,
+- and remote opportunities.
+
+This distinguishes general job density from **personal opportunity density**.
+
+---
+
+### Company Fit
+
+`CompanyFit` aggregates job-fit information at company level.
+
+It can be used to identify employers whose current demand aligns particularly well with the personal profile.
+
+---
+
+### Technology Learning Priority
+
+Technology learning recommendations are a specialised form of skill-gap prioritisation.
+
+The analysis can be restricted to technical skill categories and may consider:
+
+- current market demand,
+- personal skill gaps,
+- marketability gain,
+- demand trends,
+- and required proficiency.
+
+The resulting ranking should answer:
+
+> Which technology would provide the greatest expected benefit if learned next?
+
+---
+
+### Salary Benchmark
+
+Salary recommendations should not be based on the overall labour market.
+
+Instead, salary ranges should be estimated from a relevant comparison set of job postings.
+
+This comparison set may be determined using:
+
+- job profile,
+- personal job fit,
+- experience level,
+- location,
+- skills,
+- and other relevant characteristics.
+
+The resulting output should preferably be expressed as a range or distribution, for example using:
+
+- lower quartile,
+- median,
+- upper quartile.
+
+The system should therefore provide a **salary benchmark**, not claim to determine an individual's exact market value.
+
+---
+
+### Career Path Fit
+
+`CareerPathFit` aggregates matching information by `JobProfile`.
+
+For example:
+
+```text
+BI Analyst
+Data Scientist
+Data Engineer
+Statistical Programmer
+Software Developer
+```
+
+Possible components include:
+
+- current average job fit,
+- number of matching vacancies,
+- magnitude of remaining skill gaps,
+- required learning effort,
+- salary potential,
+- and market demand.
+
+This can be used to identify career directions that combine strong current fit with attractive market opportunities.
+
+---
+
+## Decision-Support Questions
+
+The Level 3 analytical layer ultimately supports the following business questions:
+
+- Which skill gaps should be prioritised?
+- Which additional skills would provide the greatest increase in marketability?
+- Which regions best match my current profile?
+- Which companies are realistic targets?
+- Which technologies should I learn next?
+- What salary range is realistic based on my profile?
+- Which career paths appear to be the best fit?
+
+These questions are not answered directly by additional domain entities.
+
+Instead, they are answered through derived analytical quantities based on the Level 1 and Level 2 models.
+
+---
+
+## Architectural Principle
+
+Level 3 introduces a clear separation between **data**, **analytics**, and **recommendations**:
+
+```text
+Level 1 + Level 2
+      |
+      v
+Observed Data
+      |
+      v
+Matching / Scoring Model
+      |
+      v
+Derived Analytical Measures
+      |
+      v
+Decision Rules
+      |
+      v
+Recommendations
+```
+
+This separation allows the matching model and decision rules to evolve independently from the underlying dimensional model.
+
+The exact mathematical definitions of matching scores, distance measures, weighting schemes and recommendation rules are outside the scope of the conceptual data model and should be specified separately before implementation.
