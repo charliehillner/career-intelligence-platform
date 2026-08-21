@@ -141,6 +141,21 @@ However, these components do not necessarily form a flat collection of independe
 
 In particular, skill-related matching has an internal hierarchical structure.
 
+## 4.1 V1 Assumptions
+
+In V1 we have only modelled Skill Matching in sufficient detail.
+
+Therefore, the first baseline model defines
+
+$$
+Q_{V_1}(P,J) = m_{\mathrm{Skills}}(P,J).
+$$
+
+This should not be interpreted as the assumption that professional
+qualification consists exclusively of skills.
+
+Instead, it defines the current scope of the operational model.
+
 ---
 
 # 5. Skill Matching
@@ -200,6 +215,20 @@ represents the importance of skill $s$ for job $J$.
 For example, a core requirement should generally receive greater importance than an optional or supporting skill.
 
 The exact determination of $w_s(J)$ is a separate modelling problem.
+
+---
+
+## V1 Assumptions
+
+For V1 we explicitly say
+
+$$
+w_s(J) = 1/\vert S_J \vert,
+$$
+
+meaning that each skill-match equally contributes to $m_{\mathrm{Skills}}(P,J)$.
+
+Obviously, this assumption has to be revised in versions V2+.
 
 ---
 

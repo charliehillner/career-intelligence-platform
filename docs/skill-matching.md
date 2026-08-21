@@ -234,6 +234,28 @@ $$
 \text{sim}(s_1,s_2).
 $$
 
+For the individual skill matches in the next sections we want to aim for
+
+$$
+m_{s}(P,J) = \alpha_s(J)m_{\mathrm{Prof},s}(P,J) + (1-\alpha_s(J))m_{\mathrm{Exp},s}(P,J),
+$$
+
+with $\alpha_s(J)$ denoting a weighting parameter for the skill matches between Proficiency and Experience.
+
+In V1, we explicitly say that
+
+$$
+\alpha_s(J) = \frac{1}{2},
+$$
+
+so equal importance of the skill matches is assumed for now.
+
+That is,
+
+$$
+m_{s}(P,J) = \frac{1}{2}\left(m_{\mathrm{Prof},s}(P,J) + m_{\mathrm{Exp},s}(P,J) \right)
+$$
+
 ---
 
 # 3. Individual Skill Match
