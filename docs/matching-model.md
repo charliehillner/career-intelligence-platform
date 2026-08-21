@@ -463,3 +463,29 @@ $$
 $$
 
 This hierarchy preserves the semantic structure of the underlying problem and allows different matching methods to be used for different types of variables.
+
+# X. V1 Scope Reduction
+
+The complete Job-Person Matching Model is conceptually defined through
+Eligibility, Qualification Fit, and Preference Fit.
+
+For the first operational version, the model is deliberately reduced to
+Qualification Fit only.
+
+Thus,
+
+$$
+M_{\text{V1}}(P,J) = Q_{\text{V1}}(P,J).
+$$
+
+Since the current Qualification Model contains only Skill Fit,
+
+$$
+M_{\text{V1}}(P,J) = m_{\text{Skills}}(P,J).
+$$
+
+Eligibility, Preference Fit, and their aggregation are deferred to V2+.
+
+This reduction is intentional. V1 is designed as a transparent baseline
+for evaluating the behaviour of the Skill Matching Model before additional
+sources of complexity are introduced.
