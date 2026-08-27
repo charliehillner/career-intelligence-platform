@@ -150,15 +150,21 @@ Evidence remains available as descriptive information but is not numerically inc
 - [x] Define Experience Matching baseline
 - [x] Define individual Skill Match aggregation
 - [x] Define overall Skill Fit aggregation
-- [ ] Implement Proficiency Match in Python
-- [ ] Implement Experience Match in Python
-- [ ] Implement individual Skill Match
-- [ ] Implement overall Skill Fit
-- [ ] Implement Qualification Fit
-- [ ] Add unit tests
-- [ ] Calculate matches for synthetic jobs
-- [ ] Inspect resulting rankings
-- [ ] Document observed limitations
+- [x] Implement Proficiency Match in Python
+- [x] Implement Experience Match in Python
+- [x] Implement individual Skill Match
+- [x] Implement overall Skill Fit
+- [x] Implement Qualification Fit
+- [x] Add unit tests
+- [x] Add end-to-end integration test for one complete job
+- [ ] Connect Python to PostgreSQL
+- [ ] Load synthetic person profile from DB
+- [ ] Load synthetic job requirements from DB
+- [ ] Calculate M_V1(P,J) for all synthetic jobs
+- [ ] Produce ranked job results
+- [ ] Preserve skill-level explanations for each score
+- [ ] Inspect ranking against qualitative expectations
+- [ ] Document observed limitations / surprising behaviour
 
 ## Definition of Done
 

@@ -256,6 +256,35 @@ $$
 m_{s}(P,J) = \frac{1}{2}\left(m_{\mathrm{Prof},s}(P,J) + m_{\mathrm{Exp},s}(P,J) \right)
 $$
 
+## Missing Skills vs. Missing Information
+
+V1 distinguishes between a **missing skill** and **missing information**.
+
+If a job requires a skill \(s\), but no corresponding Person-Skill
+relationship exists for person \(P\), the skill is treated as absent.
+
+Therefore,
+
+$$
+m_s(P,J) = 0.
+$$
+
+This represents an observed skill gap rather than missing data.
+
+Missing requirement information is treated differently. If a job
+requires a skill but does not specify one of its matching components,
+such as required years of experience, that component is excluded from
+the aggregation.
+
+Thus:
+
+- absent Person-Skill relationship -> Skill Match = 0
+- missing proficiency requirement -> Proficiency Match is not evaluated
+- missing experience requirement -> Experience Match is not evaluated
+
+This distinction prevents missing requirement information from being
+incorrectly interpreted as evidence of a qualification deficit.
+
 ---
 
 # 3. Individual Skill Match
