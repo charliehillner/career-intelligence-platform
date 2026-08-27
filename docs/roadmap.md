@@ -76,14 +76,14 @@ Synthetic Personal Profile
 - [x] Create Docker Compose configuration
 - [x] Start PostgreSQL container
 - [x] Verify database connectivity
-- [ ] Implement initial SQL schema
-- [ ] Create dimension tables
-- [ ] Create fact tables
-- [ ] Create bridge tables
-- [ ] Define synthetic job postings
-- [ ] Define synthetic personal profile
-- [ ] Load synthetic data into PostgreSQL
-- [ ] Verify relationships and constraints
+- [x] Implement initial SQL schema
+- [x] Create dimension tables
+- [x] Create fact tables
+- [x] Create bridge tables
+- [x] Define synthetic job postings
+- [x] Define synthetic personal profile
+- [x] Load synthetic data into PostgreSQL
+- [x] Verify relationships and constraints
 
 ## Definition of Done
 
