@@ -164,7 +164,7 @@ Evidence remains available as descriptive information but is not numerically inc
 - [x] Produce ranked job results
 - [x] Preserve skill-level explanations for each score
 - [x] Inspect ranking against qualitative expectations
-- [] Document observed limitations / surprising behaviour
+- [x] Document observed limitations / surprising behaviour
 
 ## Definition of Done
 
