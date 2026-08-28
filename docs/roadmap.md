@@ -157,14 +157,14 @@ Evidence remains available as descriptive information but is not numerically inc
 - [x] Implement Qualification Fit
 - [x] Add unit tests
 - [x] Add end-to-end integration test for one complete job
-- [ ] Connect Python to PostgreSQL
-- [ ] Load synthetic person profile from DB
-- [ ] Load synthetic job requirements from DB
-- [ ] Calculate M_V1(P,J) for all synthetic jobs
-- [ ] Produce ranked job results
-- [ ] Preserve skill-level explanations for each score
-- [ ] Inspect ranking against qualitative expectations
-- [ ] Document observed limitations / surprising behaviour
+- [x] Connect Python to PostgreSQL
+- [x] Load synthetic person profile from DB
+- [x] Load synthetic job requirements from DB
+- [x] Calculate M_V1(P,J) for all synthetic jobs
+- [x] Produce ranked job results
+- [x] Preserve skill-level explanations for each score
+- [x] Inspect ranking against qualitative expectations
+- [] Document observed limitations / surprising behaviour
 
 ## Definition of Done
 

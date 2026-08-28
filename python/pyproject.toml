@@ -7,6 +7,9 @@ name = "career-intelligence"
 version = "0.1.0"
 description = "Matching engine for the Career Intelligence Platform"
 requires-python = ">=3.11"
+dependencies = [
+    "psycopg[binary]>=3.2",
+]
 
 [project.optional-dependencies]
 dev = [
