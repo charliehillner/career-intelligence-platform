@@ -1,5 +1,9 @@
 from collections import Counter
 
+from career_intelligence.normalization import (
+    build_observable_text,
+    extract_skill_requirements,
+)
 from career_intelligence.sources.adzuna import search_jobs
 
 def value_or_missing(value):
@@ -14,7 +18,7 @@ def value_or_missing(value):
 
 def main():
     data = search_jobs(
-        query="Biostatistician",
+        query="Python Data Scientist",
         country="de",
         results_per_page=10,
     )
@@ -73,6 +77,20 @@ def main():
         print(
             f"  Description length: "
             f"{len(job.get('description', ''))}"
+        )
+        print()
+
+        text = build_observable_text(job)
+        
+        skills = extract_skill_requirements(text)
+
+        skill_names = [
+            skill.skill_name
+            for skill in skills
+        ]
+        print(
+            f"  Skills:   "
+            f"{', '.join(skill_names) if skill_names else '<none>'}"
         )
         print()
 
