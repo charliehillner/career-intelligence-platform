@@ -203,10 +203,10 @@ Matching Engine
 ## Tasks
 
 - [x] Register / configure Adzuna API access
-- [ ] Retrieve first real job postings
-- [ ] Inspect raw API response structure
-- [ ] Identify available and missing attributes
-- [ ] Compare Adzuna representation with canonical model
+- [x] Retrieve first real job postings
+- [x] Inspect raw API response structure
+- [x] Identify available and missing attributes
+- [x] Compare Adzuna representation with canonical model
 - [ ] Load normalized real jobs through repository
 - [ ] Run existing V1 matching engine
 - [ ] Rank real job postings
