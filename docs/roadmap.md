@@ -207,6 +207,7 @@ Matching Engine
 - [x] Inspect raw API response structure
 - [x] Identify available and missing attributes
 - [x] Compare Adzuna representation with canonical model
+- [x] Skill Presence Extraction
 - [ ] Load normalized real jobs through repository
 - [ ] Run existing V1 matching engine
 - [ ] Rank real job postings
