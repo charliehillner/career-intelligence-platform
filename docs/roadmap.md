@@ -202,18 +202,16 @@ Matching Engine
 
 ## Tasks
 
-- [ ] Connect to initial job-market data source
-- [ ] Implement Python ingestion
-- [ ] Store raw source payloads
-- [ ] Introduce raw job data layer
-- [ ] Extract relevant job attributes
-- [ ] Extract skills
-- [ ] Extract experience requirements where possible
-- [ ] Normalise skill terminology
-- [ ] Map source data to dimensional model
-- [ ] Run V1 Matching Engine against real jobs
-- [ ] Investigate missing and ambiguous information
-- [ ] Document data-quality limitations
+- [x] Register / configure Adzuna API access
+- [ ] Retrieve first real job postings
+- [ ] Inspect raw API response structure
+- [ ] Identify available and missing attributes
+- [ ] Compare Adzuna representation with canonical model
+- [ ] Load normalized real jobs through repository
+- [ ] Run existing V1 matching engine
+- [ ] Rank real job postings
+- [ ] Inspect skill-level explanations
+- [ ] Compare behaviour with synthetic evaluation
 
 ## Definition of Done
 

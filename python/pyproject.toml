@@ -9,6 +9,7 @@ description = "Matching engine for the Career Intelligence Platform"
 requires-python = ">=3.11"
 dependencies = [
     "psycopg[binary]>=3.2",
+    "python-dotenv>=1.0",
 ]
 
 [project.optional-dependencies]
